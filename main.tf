@@ -105,8 +105,12 @@ resource "helm_release" "opsmx_ssd" {
   wait             = true
 
   lifecycle {
+    # Combine all attributes you want to ignore in a single ignore_changes list
+    ignore_changes = [
+      name,
+      metadata
+    ]
     replace_triggered_by = [null_resource.clone_ssd_chart]
-    ignore_changes = [name]
-    ignore_changes = [metadata]
+    
   }
 }
