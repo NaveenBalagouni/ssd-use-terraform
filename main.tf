@@ -40,7 +40,7 @@ resource "kubernetes_namespace" "opmsx_ns" {
   }
 
   lifecycle {
-    prevent_destroy = false
+    prevent_destroy = true
   }
 }
 
