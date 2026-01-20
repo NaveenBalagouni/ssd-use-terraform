@@ -106,5 +106,6 @@ resource "helm_release" "opsmx_ssd" {
 
   lifecycle {
     replace_triggered_by = [null_resource.clone_ssd_chart]
+    ignore_changes = [name]
   }
 }
