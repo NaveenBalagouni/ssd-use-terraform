@@ -25,6 +25,14 @@ provider "helm" {
   }
 }
 
+# Detect or create namespace
+# -----------------------------
+data "kubernetes_namespace" "opmsx_ns" {
+  metadata {
+    name = var.namespace
+  }
+}
+
 # Step 1: Create namespace
 resource "kubernetes_namespace" "opmsx_ns" {
   metadata {
