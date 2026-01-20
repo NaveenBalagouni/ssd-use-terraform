@@ -94,7 +94,7 @@ resource "helm_release" "opsmx_ssd" {
 
   set {
     name  = "global.ssdUI.host"
-    value = join(",", var.ingress_hosts) 
+    value = each.key
   }
 
   create_namespace = false
