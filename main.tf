@@ -74,7 +74,7 @@ resource "helm_release" "opsmx_ssd" {
 
   depends_on = [null_resource.clone_ssd_chart]
 
-  name      = "ssd-terraform"
+  name      = ""ssd-terraform-${each.key}"
   namespace = var.namespace
   chart     = "/tmp/enterprise-ssd/charts/ssd"
   values    = [data.local_file.ssd_values.content]
